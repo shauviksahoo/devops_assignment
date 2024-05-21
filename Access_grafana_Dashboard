@@ -1,0 +1,5 @@
+# Get Grafana admin password
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+# Forward Grafana port to localhost
+kubectl port-forward service/grafana 3000:80
